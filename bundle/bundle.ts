@@ -31,6 +31,7 @@ namespace $ {
 
 			for( const file of slice.files() ) {
 				if( !/\.zig$/.test( file.name() ) ) continue
+				if( /^web/.test( slice.prefix() ) && /\.native\./.test( file.name() ) ) continue
 				const dir = this.module_dir( file )
 				modules.set( dir, [ ... modules.get( dir ) ?? [], file ] )
 			}
