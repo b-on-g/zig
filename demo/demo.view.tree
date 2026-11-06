@@ -1,0 +1,35 @@
+$bog_zig_demo $mol_page
+	title @ \Корзина на Zig
+	tools /
+		<= Alive $mol_view
+			sub /
+				<= alive_label \
+	body /
+		<= Products $mol_section
+			title @ \Каталог
+			content <= products /
+		<= Lines $mol_section
+			title @ \Корзина
+			content <= lines /
+		<= Total $mol_paragraph
+			title <= total \
+	Product* $mol_view
+		sub /
+			<= Product_title* $mol_paragraph
+				title <= product_title* \
+			<= Product_price* $mol_number
+				value? <=> product_price*? 0
+			<= Product_add* $mol_button_minor
+				title @ \В корзину
+				click? <=> product_add*? null
+	Line* $mol_view
+		sub /
+			<= Line_title* $mol_paragraph
+				title <= line_title* \
+			<= Line_qty* $mol_number
+				value? <=> line_qty*? 0
+			<= Line_sum* $mol_paragraph
+				title <= line_sum* \
+			<= Line_remove* $mol_button_minor
+				title @ \Убрать
+				click? <=> line_remove*? null

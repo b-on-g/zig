@@ -1,0 +1,9 @@
+{
+	"devDependencies": {
+		"jsdom": "^29.1.1"
+	},
+	"scripts": {
+		"start": "cd ../../.. && npx mam bog/build2/start && node bog/build2/start/-/node.js bog/zig/demo"
+	},
+	"dependencies": {}
+}
